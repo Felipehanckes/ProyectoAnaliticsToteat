@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav-bar/>
+    <BaseDateFilter />
+    <router-view :key="$route.fullPath" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBar from '@/components/NavBar.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavBar
+  },
+  created(){
+    return this.$store.dispatch('getList')
   }
 }
 </script>
@@ -23,6 +27,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.content{
+margin-left: 250px;
+margin-top: 30px;
+}
+.content-grid{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  grid-template-columns: repeat(3, 3fr);
+  grid-gap: 15px;
+  margin: 4%;
+  
+  //grid-auto-rows: minmax(100px, auto);
 }
 </style>
