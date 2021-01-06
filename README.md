@@ -22,3 +22,10 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Para activar la API:
+
+Solicitar bd.json(1.9mb) y hostear en local con:
+```
+json-server --watch db.json
+```
